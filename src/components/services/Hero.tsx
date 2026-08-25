@@ -1,4 +1,5 @@
-import { ArrowDown, Printer } from "lucide-react";
+import Image from "next/image";
+import { ArrowDown } from "lucide-react";
 import Reveal from "@/components/shared/Reveal";
 
 export default function Hero() {
@@ -39,9 +40,14 @@ export default function Hero() {
           />
 
           <div className="relative aspect-[5/4] overflow-hidden rounded-2xl border border-gray-100 bg-gradient-to-br from-gray-100 to-gray-200 shadow-xl">
-            <div className="flex h-full w-full items-center justify-center">
-              <Printer className="h-20 w-20 text-ink-800/70" strokeWidth={1.25} />
-            </div>
+            <Image
+              src="/assets/home/services-bg.png"
+              alt="Office printers and printing equipment"
+              fill
+              unoptimized
+              priority
+              className="object-contain p-8"
+            />
             <div className="absolute inset-x-0 bottom-0 flex h-3">
               <div className="flex-1 bg-brand-600" />
               <div className="flex-1 bg-ink-900" />

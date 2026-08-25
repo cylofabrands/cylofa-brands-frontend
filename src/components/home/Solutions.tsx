@@ -22,14 +22,15 @@ export default function Solutions() {
 
         <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-12">
           <Reveal className="lg:col-span-7">
-            <div className="group relative flex h-full min-h-[320px] flex-col justify-end overflow-hidden rounded-2xl bg-ink-900 p-6 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl sm:p-8">
+            <div className="group relative flex h-full min-h-[320px] flex-col justify-end overflow-hidden rounded-2xl bg-gradient-to-br from-ink-800 to-ink-900 p-6 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl sm:p-8">
               <Image
-                src="https://images.unsplash.com/photo-1532622785990-d2c36a76f5a6?w=1200&q=75&auto=format&fit=crop"
-                alt="Team collaborating on brand strategy at a whiteboard"
+                src="/assets/home/solution1.png"
+                alt="Cylofa Brands branded step-and-repeat backdrop"
                 fill
+                unoptimized
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink-900/95 via-ink-900/60 to-ink-900/10" />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink-900/90 via-ink-900/25 to-transparent" />
 
               <div className="relative">
                 <h3 className="text-2xl font-bold text-white sm:text-3xl">
@@ -52,12 +53,13 @@ export default function Solutions() {
                 High-visibility large format printing and dimensional
                 signage for impactful physical presence.
               </p>
-              <div className="relative mt-4 aspect-[16/10] w-full overflow-hidden rounded-lg bg-gray-100">
+              <div className="relative mt-4 aspect-[16/10] w-full overflow-hidden rounded-lg bg-gradient-to-br from-ink-800 to-ink-900">
                 <Image
-                  src="https://images.unsplash.com/photo-1635873432087-50eba4c4392d?w=800&q=75&auto=format&fit=crop"
-                  alt="Illuminated outdoor billboard signage"
+                  src="/assets/home/solution2.png"
+                  alt="Illuminated backlit signage mockup"
                   fill
-                  className="object-cover"
+                  unoptimized
+                  className="object-contain p-4"
                 />
               </div>
             </div>
@@ -105,12 +107,13 @@ export default function Solutions() {
                   interaction.
                 </p>
               </div>
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg bg-gray-100 sm:w-48 sm:shrink-0">
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg bg-gray-50 sm:w-48 sm:shrink-0">
                 <Image
-                  src="https://images.unsplash.com/photo-1686815094755-7729c6d63187?w=600&q=75&auto=format&fit=crop"
-                  alt="Branded notebook and desk stationery"
+                  src="/assets/home/solution4.png"
+                  alt="Colorful office lever arch files and stationery"
                   fill
-                  className="object-cover"
+                  unoptimized
+                  className="object-contain p-3"
                 />
               </div>
             </div>

@@ -1,13 +1,18 @@
-import { Boxes, Presentation, Shirt, Truck, type LucideIcon } from "lucide-react";
+import Image from "next/image";
 import Reveal from "@/components/shared/Reveal";
 import WhatsAppIcon from "@/components/shared/WhatsAppIcon";
 import { WHATSAPP_NUMBER } from "@/components/shared/whatsapp";
+
+type ServiceImage = {
+  src: string;
+  alt: string;
+};
 
 type Service = {
   number: string;
   title: string;
   description: string;
-  icon: LucideIcon;
+  images: ServiceImage[];
   reverse?: boolean;
 };
 
@@ -17,14 +22,28 @@ const SERVICES: Service[] = [
     title: "Signage & Large Format",
     description:
       "Command attention in the physical world. We design, produce, and install high-visibility tents, banners, and billboards. Our large format solutions use weather-resistant materials and ultra-sharp printing technology to ensure your brand stands out in high-traffic environments, from trade shows to highway displays.",
-    icon: Presentation,
+    images: [
+      {
+        src: "/assets/home/solution1.png",
+        alt: "Branded step-and-repeat backdrop",
+      },
+      {
+        src: "/assets/home/solution2.png",
+        alt: "Illuminated backlit signage mockup",
+      },
+    ],
   },
   {
     number: "02",
     title: "Vehicle Branding",
     description:
       "Turn your fleet into moving billboards. We provide premium vehicle wraps and decals that integrate seamlessly with your brand identity. Using durable, automotive-grade vinyl, our designs offer long-lasting mobile marketing that captures thousands of impressions daily.",
-    icon: Truck,
+    images: [
+      {
+        src: "/assets/home/solution5.png",
+        alt: "Branded vehicle wrap on a car",
+      },
+    ],
     reverse: true,
   },
   {
@@ -32,14 +51,28 @@ const SERVICES: Service[] = [
     title: "Corporate Gifts & Apparel",
     description:
       "Cultivate loyalty and professional unity. We supply and brand premium corporate gifts, custom uniforms, and executive stationery. Our detailed embroidery and engraving services ensure your logo is presented with the highest level of craftsmanship, reinforcing your brand's premium positioning.",
-    icon: Shirt,
+    images: [
+      {
+        src: "/assets/home/solution6.png",
+        alt: "Branded leather notebook organizers",
+      },
+      {
+        src: "/assets/home/solution7.png",
+        alt: "Branded jute tote bag with water bottle",
+      },
+    ],
   },
   {
     number: "04",
     title: "Office Supplies & Print",
     description:
       "Equip your workspace for success. Beyond branding, we provide essential office supplies, high-quality printing paper, and custom packaging solutions. We ensure consistency across every touchpoint, from everyday documents to the premium boxes your products ship in.",
-    icon: Boxes,
+    images: [
+      {
+        src: "/assets/home/solution4.png",
+        alt: "Colorful office lever arch files",
+      },
+    ],
     reverse: true,
   },
 ];
@@ -54,24 +87,34 @@ export default function ServicesList() {
             className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16"
           >
             <Reveal className={service.reverse ? "lg:order-2" : ""}>
-              <div className="group relative aspect-[4/3] overflow-hidden rounded-2xl border border-gray-100 bg-gradient-to-br from-white to-gray-100 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl">
-                <div
-                  className="absolute -right-6 -top-6 h-24 w-24 opacity-50"
-                  style={{
-                    backgroundImage:
-                      "radial-gradient(currentColor 1.5px, transparent 1.5px)",
-                    backgroundSize: "10px 10px",
-                    color: "var(--color-brand-200)",
-                  }}
-                  aria-hidden="true"
-                />
-                <div className="flex h-full w-full items-center justify-center">
-                  <service.icon
-                    className="h-20 w-20 text-ink-800/70 transition-transform duration-500 group-hover:scale-110"
-                    strokeWidth={1.25}
+              {service.images.length === 2 ? (
+                <div className="grid aspect-[4/3] grid-cols-2 gap-3">
+                  {service.images.map((image) => (
+                    <div
+                      key={image.src}
+                      className="group relative overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl"
+                    >
+                      <Image
+                        src={image.src}
+                        alt={image.alt}
+                        fill
+                        unoptimized
+                        className="object-contain p-4 transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="group relative aspect-[4/3] overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl">
+                  <Image
+                    src={service.images[0].src}
+                    alt={service.images[0].alt}
+                    fill
+                    unoptimized
+                    className="object-contain p-8 transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
-              </div>
+              )}
             </Reveal>
 
             <Reveal delay={120} className={service.reverse ? "lg:order-1" : ""}>

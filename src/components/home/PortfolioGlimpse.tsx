@@ -15,6 +15,8 @@ type GlimpseItem = {
   src: string;
   alt: string;
   category: Category;
+  contain?: boolean;
+  unoptimized?: boolean;
 };
 
 const FILTERS: Array<"All" | Category> = [
@@ -27,44 +29,51 @@ const FILTERS: Array<"All" | Category> = [
 
 const GLIMPSE_ITEMS: GlimpseItem[] = [
   {
-    src: "https://images.unsplash.com/photo-1761195689615-9469b65dac01?w=800&q=75&auto=format&fit=crop",
-    alt: "Branded exhibition booth at a business event",
+    src: "/assets/home/portfolio4.png",
+    alt: "Labor Day Sale roll-up banner stand",
     category: "Branding & Signage",
+    contain: true,
+    unoptimized: true,
   },
   {
-    src: "https://images.unsplash.com/photo-1737513915304-a298b4fd5865?w=800&q=75&auto=format&fit=crop",
-    alt: "Branded delivery van parked on the roadside",
+    src: "/assets/home/solution1.png",
+    alt: "Cylofa Brands step-and-repeat backdrop",
     category: "Branding & Signage",
+    unoptimized: true,
   },
   {
-    src: "https://images.unsplash.com/photo-1758691736580-a41e0cfe9e9f?w=800&q=75&auto=format&fit=crop",
-    alt: "Brand presentation at a business conference",
+    src: "/assets/home/solution2.png",
+    alt: "Illuminated barber shop signage",
     category: "Branding & Signage",
+    contain: true,
+    unoptimized: true,
   },
   {
-    src: "https://images.unsplash.com/photo-1635274605638-d44babc08a4f?w=800&q=75&auto=format&fit=crop",
-    alt: "Folded uniform polo shirts",
+    src: "/assets/home/portfolio1.png",
+    alt: "Branded Cylofa Prints polo shirt",
+    category: "Uniforms",
+    contain: true,
+    unoptimized: true,
+  },
+  {
+    src: "/assets/home/portfolio5.png",
+    alt: "Stack of embroidered branded hoodies",
     category: "Uniforms",
   },
   {
-    src: "https://images.unsplash.com/photo-1686815094755-7729c6d63187?w=800&q=75&auto=format&fit=crop",
-    alt: "Branded notebook and desk stationery",
+    src: "/assets/home/portfolio2.png",
+    alt: "Branded jute tote bag with water bottle",
     category: "Promotional Items",
   },
   {
-    src: "https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=800&q=75&auto=format&fit=crop",
-    alt: "Office printer",
-    category: "Office Supplies",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1562240020-ce31ccb0fa7d?w=800&q=75&auto=format&fit=crop",
-    alt: "Stacked sheets of printing paper",
-    category: "Office Supplies",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1574365569389-a10d488ca3fb?w=800&q=75&auto=format&fit=crop",
-    alt: "Branded canvas tote bag",
+    src: "/assets/home/portfolio3.png",
+    alt: "Branded corporate gift set of mugs, notebooks, and pens",
     category: "Promotional Items",
+  },
+  {
+    src: "/assets/home/solution3.png",
+    alt: "Colorful stationery and pens display",
+    category: "Office Supplies",
   },
 ];
 
@@ -112,14 +121,19 @@ export default function PortfolioGlimpse() {
           {visibleItems.map((item) => (
             <div
               key={item.src}
-              className="group relative aspect-square overflow-hidden rounded-2xl bg-gray-100 shadow-sm transition-shadow duration-500 hover:shadow-xl"
+              className={`group relative aspect-square overflow-hidden rounded-2xl shadow-sm transition-shadow duration-500 hover:shadow-xl ${
+                item.contain ? "bg-white" : "bg-gray-100"
+              }`}
             >
               <Image
                 src={item.src}
                 alt={item.alt}
                 fill
+                unoptimized={item.unoptimized}
                 sizes="(min-width: 1024px) 22vw, (min-width: 640px) 45vw, 45vw"
-                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                className={`transition-transform duration-500 group-hover:scale-110 ${
+                  item.contain ? "object-contain p-6" : "object-cover"
+                }`}
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
             </div>

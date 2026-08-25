@@ -21,7 +21,7 @@ export default function Story() {
               <div className="grid grid-cols-2 gap-2">
                 <div className="relative aspect-square overflow-hidden rounded-xl bg-gray-100">
                   <Image
-                    src="https://images.unsplash.com/photo-1737513915304-a298b4fd5865?w=600&q=75&auto=format&fit=crop"
+                    src="/assets/home/portfolio3.png"
                     alt="Branded delivery van"
                     fill
                     sizes="(min-width: 1024px) 16rem, 45vw"
@@ -30,7 +30,7 @@ export default function Story() {
                 </div>
                 <div className="relative aspect-square overflow-hidden rounded-xl bg-gray-100">
                   <Image
-                    src="https://images.unsplash.com/photo-1686815094755-7729c6d63187?w=600&q=75&auto=format&fit=crop"
+                    src="/assets/home/solution3.png"
                     alt="Branded notebook and desk stationery"
                     fill
                     sizes="(min-width: 1024px) 16rem, 45vw"
