@@ -6,7 +6,7 @@ export default function Hero() {
       <div className="mx-auto max-w-3xl px-6 text-center lg:px-8">
         <Reveal>
           <h1 className="text-4xl font-extrabold leading-[1.1] tracking-tight text-ink-900 sm:text-5xl">
-            Let&apos;s Build Your Brand Together
+            Let&apos;s Build Your <span className="text-brand-600">Brand</span> Together
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-600">
             Ready to elevate your presence? Reach out to our Ruiru team for
