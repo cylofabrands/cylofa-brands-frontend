@@ -20,46 +20,45 @@ const ITEMS: Item[] = [
   { label: "Reliability", color: "text-emerald-500", cord: 20 },
 ];
 
-function Bulb({
-  size,
-  featured,
-}: {
-  size: number;
-  featured?: boolean;
-}) {
+function Coil({ size }: { size: number }) {
+  const width = size * 0.42;
+  const height = size * 0.38;
   return (
     <svg
-      viewBox="0 0 100 140"
-      width={size}
-      height={(size * 140) / 100}
+      viewBox="0 0 40 46"
+      width={width}
+      height={height}
       fill="none"
-      className="overflow-visible"
+      className="block overflow-visible"
+    >
+      <path
+        d="M20 0 C7 5 7 12.5 20 17 C33 21.5 33 29 20 33.5 C10 37 9 41 20 46"
+        stroke="currentColor"
+        strokeWidth="3.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function BulbCircle({ size, featured }: { size: number; featured?: boolean }) {
+  return (
+    <svg
+      viewBox="0 0 100 100"
+      width={size}
+      height={size}
+      fill="none"
+      className="block overflow-visible"
     >
       <circle
         cx="50"
-        cy="42"
-        r="40"
+        cy="50"
+        r="46"
         stroke="currentColor"
-        strokeWidth="3"
+        strokeWidth="3.5"
         fill={featured ? "currentColor" : "white"}
-        fillOpacity={featured ? 0.12 : 1}
-      />
-      <path
-        d="M35 76 L35 98 Q35 104 41 104 L59 104 Q65 104 65 98 L65 76"
-        stroke="currentColor"
-        strokeWidth="3"
-        strokeLinejoin="round"
-      />
-      <line x1="36" y1="86" x2="64" y2="86" stroke="currentColor" strokeWidth="2.5" />
-      <line x1="36" y1="94" x2="64" y2="94" stroke="currentColor" strokeWidth="2.5" />
-      <rect
-        x="41"
-        y="104"
-        width="18"
-        height="9"
-        rx="2.5"
-        stroke="currentColor"
-        strokeWidth="3"
+        fillOpacity={featured ? 0.1 : 1}
       />
     </svg>
   );
@@ -83,7 +82,13 @@ export default function WhyUs() {
           <span className="text-xs font-bold uppercase tracking-widest text-brand-500">
             Why Us
           </span>
-          <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+          <h2
+            className="font-heading mt-3 text-4xl uppercase tracking-wide text-white sm:text-5xl"
+            style={{
+              textShadow:
+                "3px 3px 0 rgba(0,0,0,0.55), 6px 6px 14px rgba(0,0,0,0.4)",
+            }}
+          >
             Why Should You Choose Us?
           </h2>
         </Reveal>
@@ -102,6 +107,8 @@ export default function WhyUs() {
                   className="w-0.5 bg-current opacity-60"
                   style={{ height: item.cord }}
                 />
+
+                <Coil size={item.featured ? 138 : 98} />
 
                 <div className="relative transition-transform duration-300 hover:scale-110">
                   {item.featured && (
@@ -124,24 +131,18 @@ export default function WhyUs() {
                     </div>
                   )}
 
-                  <Bulb size={item.featured ? 138 : 98} featured={item.featured} />
+                  <BulbCircle size={item.featured ? 138 : 98} featured={item.featured} />
 
-                  <div
-                    className="absolute inset-x-0 flex flex-col items-center justify-center px-4 text-center"
-                    style={{
-                      top: item.featured ? "16%" : "16%",
-                      height: item.featured ? "46%" : "42%",
-                    }}
-                  >
+                  <div className="absolute inset-0 flex flex-col items-center justify-center px-4 text-center">
                     {item.featured && (
                       <Trophy
-                        className="mb-1 h-5 w-5 text-current"
+                        className="mb-1 h-5 w-5 text-ink-900"
                         strokeWidth={1.75}
                       />
                     )}
                     <span
-                      className={`font-bold leading-tight ${
-                        item.featured ? "text-sm text-white" : "text-xs text-ink-900"
+                      className={`font-rounded font-bold leading-tight text-ink-900 ${
+                        item.featured ? "text-sm" : "text-xs"
                       }`}
                     >
                       {item.label}
