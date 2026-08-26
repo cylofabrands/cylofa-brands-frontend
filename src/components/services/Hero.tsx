@@ -42,7 +42,7 @@ export default function Hero() {
           <div className="relative aspect-[5/4] overflow-hidden rounded-2xl border border-gray-100 bg-gradient-to-br from-gray-100 to-gray-200 shadow-xl">
             <Image
               src="/assets/home/services-bg.png"
-              alt="Office printers and printing equipment"
+              alt="Cylofa Brands mascot characters"
               fill
               unoptimized
               priority
