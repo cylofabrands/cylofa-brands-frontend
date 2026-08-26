@@ -58,7 +58,7 @@ function BulbCircle({ size, featured }: { size: number; featured?: boolean }) {
         stroke="currentColor"
         strokeWidth="3.5"
         fill={featured ? "currentColor" : "white"}
-        fillOpacity={featured ? 0.1 : 1}
+        fillOpacity={featured ? 0.92 : 1}
       />
     </svg>
   );
@@ -136,13 +136,13 @@ export default function WhyUs() {
                   <div className="absolute inset-0 flex flex-col items-center justify-center px-4 text-center">
                     {item.featured && (
                       <Trophy
-                        className="mb-1 h-5 w-5 text-ink-900"
+                        className="mb-1 h-5 w-5 text-white"
                         strokeWidth={1.75}
                       />
                     )}
                     <span
-                      className={`font-rounded font-bold leading-tight text-ink-900 ${
-                        item.featured ? "text-sm" : "text-xs"
+                      className={`font-rounded font-bold leading-tight ${
+                        item.featured ? "text-sm text-white" : "text-xs text-ink-900"
                       }`}
                     >
                       {item.label}
