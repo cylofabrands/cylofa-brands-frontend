@@ -61,7 +61,7 @@ const GLIMPSE_ITEMS: GlimpseItem[] = [
     category: "Uniforms",
   },
   {
-    src: "/assets/home/portfolio2.png",
+    src: "/assets/home/solution7.png",
     alt: "Branded jute tote bag with water bottle",
     category: "Promotional Items",
   },
