@@ -45,7 +45,7 @@ export default function Footer() {
         fill
         className="object-cover"
       />
-      <div className="absolute inset-0 bg-brand-600/90" />
+      <div className="absolute inset-0 bg-brand-600/60" />
 
       <div className="relative mx-auto max-w-7xl px-6 pb-16 lg:px-8">
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
