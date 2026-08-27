@@ -39,7 +39,15 @@ export default function Footer() {
     <>
       <WhatsAppButton />
       <footer className="relative overflow-hidden bg-brand-600 pt-16 sm:pt-20">
-      <div className="mx-auto max-w-7xl px-6 pb-16 lg:px-8">
+      <Image
+        src="https://images.unsplash.com/photo-1756093158082-37e567772896?w=1600&q=75&auto=format&fit=crop"
+        alt=""
+        fill
+        className="object-cover"
+      />
+      <div className="absolute inset-0 bg-brand-600/90" />
+
+      <div className="relative mx-auto max-w-7xl px-6 pb-16 lg:px-8">
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
           <div>
             <div className="relative h-10 w-36 brightness-0 invert">
@@ -117,10 +125,10 @@ export default function Footer() {
                   strokeWidth={1.75}
                 />
                 <a
-                  href="mailto:hello@cylofabrands.co.ke"
+                  href="mailto:info@cylofabrands.co.ke"
                   className="hover:text-white"
                 >
-                  hello@cylofabrands.co.ke
+                  info@cylofabrands.co.ke
                 </a>
               </li>
             </ul>
@@ -135,7 +143,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-white/15">
+      <div className="relative border-t border-white/15">
         <div className="mx-auto px-6 py-6 text-center text-xs text-white/70 lg:px-8">
           <p>
             © 2026 Cylofa Brands. Professional Branding &amp; Advertising

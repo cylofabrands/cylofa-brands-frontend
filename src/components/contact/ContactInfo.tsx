@@ -29,7 +29,7 @@ const CONTACT_DETAILS: ContactDetail[] = [
   {
     icon: Mail,
     label: "Email",
-    lines: ["hello@cylofabrands.co.ke"],
+    lines: ["info@cylofabrands.co.ke"],
   },
   {
     icon: Clock,
