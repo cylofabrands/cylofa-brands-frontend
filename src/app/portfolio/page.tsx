@@ -7,7 +7,7 @@ import PortfolioGrid from "@/components/portfolio/PortfolioGrid";
 export const metadata: Metadata = {
   title: "Portfolio | Cylofa Brands",
   description:
-    "A curated selection of Cylofa Brands' highest-impact work across corporate identity, large-scale event branding, and precision vehicle graphics.",
+    "A curated selection of real work delivered by Cylofa Brands across signage, large-format print, and branded promotional items.",
 };
 
 export default function PortfolioPage() {

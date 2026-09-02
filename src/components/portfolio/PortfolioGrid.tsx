@@ -1,139 +1,67 @@
 "use client";
 
 import { useState } from "react";
-import {
-  BookOpen,
-  Coffee,
-  NotebookPen,
-  PartyPopper,
-  Presentation,
-  Shirt,
-  Store,
-  Truck,
-  type LucideIcon,
-} from "lucide-react";
+import Image from "next/image";
 import Reveal from "@/components/shared/Reveal";
 
-type Category = "Signage" | "Print" | "Apparel";
+type Category = "Signage" | "Print" | "Promotional";
 
 type PortfolioItem = {
-  title: string;
-  tag: string;
+  src: string;
+  type: string;
   category: Category;
-  icon: LucideIcon;
-  gradient: string;
 };
 
-const FILTERS: Array<"All" | Category> = ["All", "Signage", "Print", "Apparel"];
-
-const CATEGORY_STYLES: Record<Category, string> = {
-  Signage: "from-brand-600 to-brand-800",
-  Print: "from-ink-800 to-ink-900",
-  Apparel: "from-amber-500 to-amber-700",
-};
-
-const PORTFOLIO_ITEMS: PortfolioItem[] = [
-  {
-    title: "TechVision Global Identity",
-    tag: "Corporate Rebrand",
-    category: "Print",
-    icon: BookOpen,
-    gradient: CATEGORY_STYLES.Print,
-  },
-  {
-    title: "Logistics Express Fleet",
-    tag: "Fleet Graphics",
-    category: "Signage",
-    icon: Truck,
-    gradient: CATEGORY_STYLES.Signage,
-  },
-  {
-    title: "Nairobi Summit 2024",
-    tag: "Event Branding",
-    category: "Signage",
-    icon: PartyPopper,
-    gradient: CATEGORY_STYLES.Signage,
-  },
-  {
-    title: "Ridgeway Academy Uniforms",
-    tag: "School Branding",
-    category: "Apparel",
-    icon: Shirt,
-    gradient: CATEGORY_STYLES.Apparel,
-  },
-  {
-    title: "Highland Retail Signage",
-    tag: "Storefront Branding",
-    category: "Signage",
-    icon: Store,
-    gradient: CATEGORY_STYLES.Signage,
-  },
-  {
-    title: "Amara Café Print Suite",
-    tag: "Menu & Packaging",
-    category: "Print",
-    icon: Coffee,
-    gradient: CATEGORY_STYLES.Print,
-  },
-  {
-    title: "County Government Expo",
-    tag: "Exhibition Stand",
-    category: "Signage",
-    icon: Presentation,
-    gradient: CATEGORY_STYLES.Signage,
-  },
-  {
-    title: "Corporate Staff Polos",
-    tag: "Uniform Branding",
-    category: "Apparel",
-    icon: Shirt,
-    gradient: CATEGORY_STYLES.Apparel,
-  },
-  {
-    title: "Executive Notebook Set",
-    tag: "Stationery",
-    category: "Print",
-    icon: NotebookPen,
-    gradient: CATEGORY_STYLES.Print,
-  },
+const FILTERS: Array<"All" | Category> = [
+  "All",
+  "Signage",
+  "Print",
+  "Promotional",
 ];
 
-const PAGE_SIZE = 3;
+const PORTFOLIO_ITEMS: PortfolioItem[] = [
+  { src: "/assets/portfolio/work4.jpeg", type: "Exhibition Stand Design", category: "Signage" },
+  { src: "/assets/portfolio/work2.jpeg", type: "Flyer Printing", category: "Print" },
+  { src: "/assets/portfolio/work11.jpeg", type: "3D Acrylic Signage", category: "Signage" },
+  { src: "/assets/portfolio/work1.jpeg", type: "Branded Caps", category: "Promotional" },
+  { src: "/assets/portfolio/work5.jpeg", type: "Business Cards", category: "Print" },
+  { src: "/assets/portfolio/work7.jpeg", type: "Teardrop Banner Flags", category: "Signage" },
+  { src: "/assets/portfolio/work8.jpeg", type: "Branded Mugs", category: "Promotional" },
+  { src: "/assets/portfolio/work12.jpeg", type: "Branded Gazebo Tents", category: "Signage" },
+  { src: "/assets/portfolio/work9.jpeg", type: "Branded Tote Bags", category: "Promotional" },
+  { src: "/assets/portfolio/work3.jpeg", type: "Custom Gift Boxes", category: "Print" },
+  { src: "/assets/portfolio/work13.jpeg", type: "Pop-Up Banners", category: "Signage" },
+  { src: "/assets/portfolio/work10.jpeg", type: "Branded Shopping Bags", category: "Promotional" },
+  { src: "/assets/portfolio/work6.jpeg", type: "Custom Flags", category: "Signage" },
+  { src: "/assets/portfolio/work19.jpeg", type: "Branded Pens", category: "Promotional" },
+];
 
-function CardVisual({ item, large = false }: { item: PortfolioItem; large?: boolean }) {
-  const Icon = item.icon;
+const PAGE_SIZE = 6;
+
+function WorkCard({ item, large = false }: { item: PortfolioItem; large?: boolean }) {
   return (
     <div
-      className={`group relative h-full min-h-[280px] w-full overflow-hidden rounded-2xl bg-gradient-to-br shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl ${item.gradient}`}
+      className={`group relative h-full w-full overflow-hidden rounded-2xl bg-gray-100 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl ${
+        large ? "min-h-[320px] lg:min-h-[560px]" : "min-h-[280px]"
+      }`}
     >
-      <div
-        className="absolute inset-0 opacity-20"
-        style={{
-          backgroundImage:
-            "radial-gradient(rgba(255,255,255,0.8) 1.5px, transparent 1.5px)",
-          backgroundSize: "16px 16px",
-        }}
-        aria-hidden="true"
+      <Image
+        src={item.src}
+        alt={item.type}
+        fill
+        unoptimized
+        sizes={
+          large
+            ? "(min-width: 1024px) 50vw, 100vw"
+            : "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+        }
+        className="object-cover transition-transform duration-500 group-hover:scale-105"
       />
 
-      <div className="flex h-full w-full items-center justify-center">
-        <Icon
-          className={`text-white/25 transition-transform duration-500 group-hover:scale-110 ${
-            large ? "h-28 w-28" : "h-16 w-16"
-          }`}
-          strokeWidth={1.25}
-        />
-      </div>
-
-      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent p-5 pt-16">
+      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent p-5 pt-16">
         <span className="inline-flex items-center rounded-md bg-white/90 px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-ink-900">
-          {item.tag}
+          {item.type}
         </span>
-        <h3
-          className={`mt-3 font-bold text-white ${large ? "text-2xl sm:text-3xl" : "text-xl"}`}
-        >
-          {item.title}
-        </h3>
       </div>
     </div>
   );
@@ -184,14 +112,14 @@ export default function PortfolioGrid() {
           {showcase.length === 3 && (
             <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
               <Reveal className="lg:h-full">
-                <CardVisual item={showcase[0]} large />
+                <WorkCard item={showcase[0]} large />
               </Reveal>
               <div className="flex flex-col gap-6">
                 <Reveal delay={100}>
-                  <CardVisual item={showcase[1]} />
+                  <WorkCard item={showcase[1]} />
                 </Reveal>
                 <Reveal delay={200}>
-                  <CardVisual item={showcase[2]} />
+                  <WorkCard item={showcase[2]} />
                 </Reveal>
               </div>
             </div>
@@ -204,8 +132,8 @@ export default function PortfolioGrid() {
               }`}
             >
               {rest.map((item, index) => (
-                <Reveal key={item.title} delay={(index % 3) * 100}>
-                  <CardVisual item={item} />
+                <Reveal key={item.src} delay={(index % 3) * 100}>
+                  <WorkCard item={item} />
                 </Reveal>
               ))}
             </div>

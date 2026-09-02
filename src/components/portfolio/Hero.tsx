@@ -10,9 +10,8 @@ export default function Hero() {
             Branding
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-600">
-            Explore a curated selection of our highest-impact work across
-            corporate identity, large-scale event branding, and precision
-            vehicle graphics.
+            Explore a curated selection of real work we&apos;ve delivered across
+            signage, large-format print, and branded promotional items.
           </p>
         </Reveal>
       </div>

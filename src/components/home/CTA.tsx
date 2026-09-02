@@ -7,7 +7,7 @@ export default function CTA() {
   return (
     <section className="relative overflow-hidden bg-ink-900 py-24 sm:py-28">
       <Image
-        src="https://images.unsplash.com/photo-1716471330463-f475b00f0506?w=1600&q=75&auto=format&fit=crop"
+        src="/assets/portfolio/work14.jpeg"
         alt=""
         fill
         className="object-cover"

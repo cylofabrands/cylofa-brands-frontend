@@ -21,7 +21,7 @@ export default function Story() {
               <div className="grid grid-cols-2 gap-2">
                 <div className="relative aspect-square overflow-hidden rounded-xl bg-gray-100">
                   <Image
-                    src="/assets/home/portfolio3.png"
+                    src="/assets/portfolio/work16.jpeg"
                     alt="Branded delivery van"
                     fill
                     sizes="(min-width: 1024px) 16rem, 45vw"
@@ -30,7 +30,7 @@ export default function Story() {
                 </div>
                 <div className="relative aspect-square overflow-hidden rounded-xl bg-gray-100">
                   <Image
-                    src="/assets/home/solution3.png"
+                    src="/assets/portfolio/work15.jpeg"
                     alt="Branded notebook and desk stationery"
                     fill
                     sizes="(min-width: 1024px) 16rem, 45vw"
