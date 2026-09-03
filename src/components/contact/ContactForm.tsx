@@ -22,7 +22,6 @@ const PROJECT_TYPES = [
   "Other",
 ];
 
-
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
 type Status = "idle" | "submitting" | "success" | "error";
