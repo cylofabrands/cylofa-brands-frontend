@@ -75,6 +75,16 @@ const GLIMPSE_ITEMS: GlimpseItem[] = [
     alt: "Colorful stationery and pens display",
     category: "Office Supplies",
   },
+  {
+    src: "/assets/portfolio/work19.jpeg",
+    alt: "Colorful stationery and pens display",
+    category: "Office Supplies",
+  },
+  {
+    src: "/assets/portfolio/work2.jpeg",
+    alt: "Colorful stationery and pens display",
+    category: "Office Supplies",
+  },
 ];
 
 export default function PortfolioGlimpse() {

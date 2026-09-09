@@ -125,10 +125,10 @@ export default function Footer() {
                   strokeWidth={1.75}
                 />
                 <a
-                  href="mailto:info@cylofabrands.co.ke"
+                  href="mailto:sales@cylofabrands.co.ke"
                   className="hover:text-white"
                 >
-                  info@cylofabrands.co.ke
+                  sales@cylofabrands.co.ke
                 </a>
               </li>
             </ul>
